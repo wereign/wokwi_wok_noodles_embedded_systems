@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "author": "Virenn Jay",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 121.21,
+      "left": -126.44,
+      "attrs": { "env": "micropython-20220618-v1.19.1" }
+    },
+    { "type": "board-ssd1306", "id": "oled1", "top": -2.2, "left": -197.09, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb2", "top": -38.74, "left": -191.32, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb1", "top": -39.33, "left": -159.05, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb3", "top": -37.86, "left": -123.26, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb4", "top": 9.51, "left": -84.32, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb5", "top": 47.53, "left": -83.77, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb6", "top": 91.19, "left": -115.44, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb7", "top": 89.06, "left": -151.72, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb10", "top": 1.81, "left": -226.72, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb11", "top": 44.26, "left": -225.38, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "rgb12", "top": 89.61, "left": -188.03, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "h139.06", "v-102.05", "h-231.69", "v377.5" ] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "v26.66", "h-80.38", "v239.29" ] ],
+    [ "oled1:SCL", "esp:D22", "green", [ "h129.04", "v91.73", "h15.62", "v59.22" ] ],
+    [ "oled1:SDA", "esp:D21", "green", [ "v-9.66", "h168.5", "v189.51" ] ],
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "rgb2:DIN", "esp:D23", "green", [ "v-64.14", "h144.18" ] ],
+    [ "rgb2:VDD", "esp:VIN", "green", [ "h-50.29", "v-65.29", "h228.9", "v380.24" ] ],
+    [
+      "rgb2:VSS",
+      "esp:GND.1",
+      "green",
+      [ "v-75.56", "h157.18", "v-2.25", "h-234.8", "v15.64", "h-4.04", "v355.62" ]
+    ],
+    [ "rgb2:DOUT", "rgb1:DIN", "green", [ "v21.88", "h54.27" ] ],
+    [ "rgb1:VDD", "esp:VIN", "green", [ "v-61.82", "h148.07", "v377.36" ] ],
+    [ "rgb1:VSS", "esp:GND.1", "green", [ "v19.01", "h124.91", "v275.03" ] ],
+    [ "rgb3:VSS", "esp:GND.1", "green", [ "v16.96", "h86.24", "v276.19" ] ],
+    [ "rgb3:VDD", "esp:VIN", "green", [ "v-58.68", "h109.39", "v376.21" ] ],
+    [ "rgb1:DOUT", "rgb3:DIN", "green", [ "v-71.51", "h61.83" ] ],
+    [ "rgb4:VSS", "esp:GND.1", "green", [ "h51.34", "v245.2" ] ],
+    [ "rgb4:VDD", "esp:VIN", "green", [ "v-111.24", "h72.76", "v377.94" ] ],
+    [ "rgb3:DOUT", "rgb4:DIN", "green", [ "v-70.1", "h56.9" ] ],
+    [ "rgb5:VSS", "esp:GND.1", "green", [ "v0" ] ],
+    [ "rgb5:VDD", "esp:VIN", "green", [ "v91.17", "h-45.74" ] ],
+    [ "rgb4:DOUT", "rgb5:DIN", "green", [ "v-122.66", "h72.76", "v149.26" ] ],
+    [ "rgb6:VSS", "esp:GND.1", "green", [ "v0" ] ],
+    [ "rgb6:VDD", "esp:VIN", "green", [ "h-3.94", "v53.85", "h-2.06" ] ],
+    [ "rgb5:DOUT", "rgb6:DIN", "green", [ "v50.06", "h40.14" ] ],
+    [ "rgb7:VSS", "esp:GND.1", "green", [ "v0" ] ],
+    [ "rgb7:VDD", "esp:VIN", "green", [ "v49.06", "h37.2" ] ],
+    [
+      "rgb6:DOUT",
+      "rgb7:DIN",
+      "green",
+      [ "h-5.09", "v36.98", "h-122.81", "v4.87", "h167.2", "v-0.58", "h-63.96" ]
+    ],
+    [ "rgb7:DOUT", "rgb12:DIN", "green", [ "h-8.02", "v35.29", "h-3.56", "v-46.74" ] ],
+    [ "rgb12:VSS", "esp:GND.1", "green", [ "v0" ] ],
+    [ "rgb12:VDD", "esp:VIN", "green", [ "v49.8", "h241.93" ] ],
+    [ "rgb12:DOUT", "rgb11:DIN", "green", [ "v40.61", "h44" ] ],
+    [ "rgb11:VSS", "esp:GND.1", "green", [ "v0" ] ],
+    [ "rgb11:VDD", "esp:VIN", "green", [ "h-9.31", "v222.43", "h118.44" ] ],
+    [
+      "rgb11:DOUT",
+      "rgb10:DIN",
+      "green",
+      [
+        "v1.14",
+        "h-9.89",
+        "v65.72",
+        "h-1.73",
+        "v-185.07",
+        "h2.31",
+        "v32.29",
+        "h-0.58",
+        "v-9.22",
+        "h30.55"
+      ]
+    ],
+    [
+      "rgb10:VDD",
+      "esp:VIN",
+      "green",
+      [ "v-0.91", "h-10.28", "v-35.66", "h0.95", "v-59.22", "h230.63", "v370.19" ]
+    ],
+    [ "rgb10:VSS", "esp:GND.1", "green", [ "v21.11", "h-31.13", "v239.86" ] ]
+  ]
+}
